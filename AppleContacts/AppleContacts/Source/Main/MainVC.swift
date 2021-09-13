@@ -9,7 +9,10 @@ import UIKit
 
 class MainVC: UIViewController {
     
-    let dummy = ["리정", "가비", "로잘린"]
+    let dummy = ["리정", "가비", "로잘린", "김혜수", "박씨", "선호민", "김보현", "곽민재", "이주휘", "고민영", "윤예지", "이혜선", "윤정권", "이코코", "혜임", "양요섭", "윤두준", "모니카", "립제이", "김윤서", "김루희"]
+    let sectionList = ["ㄱ","ㄲ","ㄴ","ㄷ","ㄸ","ㄹ","ㅁ","ㅂ","ㅃ","ㅅ","ㅆ","ㅇ","ㅈ","ㅉ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"]
+    //var filteredData: [[String]] = [[]]
+    
     
     // MARK: - IBOutlet
     @IBOutlet weak var searchBar: UISearchBar!
@@ -57,15 +60,48 @@ extension MainVC: UITableViewDelegate {
 }
 
 extension MainVC: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionList.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummy.count
+        
+        switch section {
+        case 0 ... sectionList.count:
+            return dummy.filter({sectionCheck(name: $0) == sectionList[section]}).count
+        default:
+            return 0
+        }
+    
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionList[section]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0 ... sectionList.count:
+            if dummy.filter({sectionCheck(name: $0) == sectionList[section]}).count == 0 {
+                return 0
+            }
+            else {
+                return 30
+            }
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let sortedList = dummy.sorted()
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainNameTVC.identifier, for: indexPath) as? MainNameTVC else {
             return UITableViewCell()
         }
-        cell.setData(name: dummy[indexPath.row])
+        
+        cell.setData(name: sortedList.filter({sectionCheck(name: $0) == sectionList[indexPath.section]})[indexPath.row])
         return cell
     }
     
@@ -74,3 +110,15 @@ extension MainVC: UITableViewDataSource {
     }
 
 }
+
+extension MainVC {
+    
+    /// 가장 첫 초성 추출
+    func sectionCheck(name: String) -> String {
+        let hangul = ["ㄱ","ㄲ","ㄴ","ㄷ","ㄸ","ㄹ","ㅁ","ㅂ","ㅃ","ㅅ","ㅆ","ㅇ","ㅈ","ㅉ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"]
+        let octal = name.unicodeScalars[name.unicodeScalars.startIndex].value
+        let index = (octal - 0xac00) / 28 / 21
+        return hangul[Int(index)] }
+}
+
+

@@ -38,7 +38,13 @@ class MainVC: UIViewController {
         tableview.delegate = self
         tableview.dataSource = self
     }
-
+    
+    // MARK: - IBAction
+    @IBAction func addButtonClicked(_ sender: Any) {
+        guard let addVC = UIStoryboard(name: "AddContact", bundle: nil).instantiateViewController(withIdentifier: "AddContactVC") as? AddContactVC else { return }
+        self.present(addVC, animated: true, completion: nil)
+    }
+    
 }
 
 extension MainVC: UITableViewDelegate {
@@ -61,6 +67,5 @@ extension MainVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
     }
-    
-    
+
 }

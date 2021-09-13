@@ -15,6 +15,10 @@
 		15A3B51426EE147B00A57ADD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15A3B51226EE147B00A57ADD /* LaunchScreen.storyboard */; };
 		15A3B51F26EE16B900A57ADD /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A3B51E26EE16B900A57ADD /* MainVC.swift */; };
 		15A3B52226EE19F000A57ADD /* MainNameTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A3B52126EE19F000A57ADD /* MainNameTVC.swift */; };
+		15A3B52526EE1EB900A57ADD /* AddContact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15A3B52426EE1EB900A57ADD /* AddContact.storyboard */; };
+		15A3B52726EE1ECE00A57ADD /* AddContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A3B52626EE1ECE00A57ADD /* AddContactVC.swift */; };
+		15A3B52A26EE55E100A57ADD /* AddPhotoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A3B52926EE55E100A57ADD /* AddPhotoTVC.swift */; };
+		15A3B52C26EF16DF00A57ADD /* AddInputTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A3B52B26EF16DF00A57ADD /* AddInputTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		15A3B51526EE147B00A57ADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15A3B51E26EE16B900A57ADD /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		15A3B52126EE19F000A57ADD /* MainNameTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNameTVC.swift; sourceTree = "<group>"; };
+		15A3B52426EE1EB900A57ADD /* AddContact.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddContact.storyboard; sourceTree = "<group>"; };
+		15A3B52626EE1ECE00A57ADD /* AddContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactVC.swift; sourceTree = "<group>"; };
+		15A3B52926EE55E100A57ADD /* AddPhotoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoTVC.swift; sourceTree = "<group>"; };
+		15A3B52B26EF16DF00A57ADD /* AddInputTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInputTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				15A3B51D26EE149800A57ADD /* Main */,
+				15A3B52326EE1E9900A57ADD /* AddContact */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -101,6 +110,25 @@
 			isa = PBXGroup;
 			children = (
 				15A3B52126EE19F000A57ADD /* MainNameTVC.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		15A3B52326EE1E9900A57ADD /* AddContact */ = {
+			isa = PBXGroup;
+			children = (
+				15A3B52426EE1EB900A57ADD /* AddContact.storyboard */,
+				15A3B52626EE1ECE00A57ADD /* AddContactVC.swift */,
+				15A3B52826EE55C600A57ADD /* Cell */,
+			);
+			path = AddContact;
+			sourceTree = "<group>";
+		};
+		15A3B52826EE55C600A57ADD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15A3B52926EE55E100A57ADD /* AddPhotoTVC.swift */,
+				15A3B52B26EF16DF00A57ADD /* AddInputTVC.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -163,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15A3B51426EE147B00A57ADD /* LaunchScreen.storyboard in Resources */,
+				15A3B52526EE1EB900A57ADD /* AddContact.storyboard in Resources */,
 				15A3B51126EE147B00A57ADD /* Assets.xcassets in Resources */,
 				15A3B50C26EE147B00A57ADD /* Main.storyboard in Resources */,
 			);
@@ -176,6 +205,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				15A3B50526EE147B00A57ADD /* AppDelegate.swift in Sources */,
+				15A3B52726EE1ECE00A57ADD /* AddContactVC.swift in Sources */,
+				15A3B52C26EF16DF00A57ADD /* AddInputTVC.swift in Sources */,
+				15A3B52A26EE55E100A57ADD /* AddPhotoTVC.swift in Sources */,
 				15A3B51F26EE16B900A57ADD /* MainVC.swift in Sources */,
 				15A3B52226EE19F000A57ADD /* MainNameTVC.swift in Sources */,
 				15A3B50726EE147B00A57ADD /* SceneDelegate.swift in Sources */,

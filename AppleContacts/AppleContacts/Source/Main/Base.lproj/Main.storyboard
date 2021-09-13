@@ -61,6 +61,42 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8di-aH-Q9Z">
                                 <rect key="frame" x="0.0" y="130" width="390" height="714"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="J3t-lf-59n">
+                                    <rect key="frame" x="0.0" y="77.000002254139304" width="390" height="88"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="d2s-Cy-YB6">
+                                            <rect key="frame" x="20" y="11" width="60" height="66.666666666666671"/>
+                                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="RZH-Db-xRO"/>
+                                                <constraint firstAttribute="height" constant="60" id="mkP-33-Ua9"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김혜수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbG-b2-reK">
+                                            <rect key="frame" x="95" y="25" width="45" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 카드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIv-2c-vmS">
+                                            <rect key="frame" x="95" y="51" width="38" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="cIv-2c-vmS" firstAttribute="leading" secondItem="d2s-Cy-YB6" secondAttribute="trailing" constant="15" id="2qJ-F2-I6O"/>
+                                        <constraint firstItem="xbG-b2-reK" firstAttribute="top" secondItem="J3t-lf-59n" secondAttribute="top" constant="25" id="BGO-Vy-ht0"/>
+                                        <constraint firstItem="cIv-2c-vmS" firstAttribute="top" secondItem="xbG-b2-reK" secondAttribute="bottom" constant="5" id="T7e-uH-8IF"/>
+                                        <constraint firstItem="d2s-Cy-YB6" firstAttribute="leading" secondItem="J3t-lf-59n" secondAttribute="leading" constant="20" id="dLo-cZ-ahk"/>
+                                        <constraint firstItem="d2s-Cy-YB6" firstAttribute="top" secondItem="J3t-lf-59n" secondAttribute="top" constant="10" id="rbQ-ZO-P9E"/>
+                                        <constraint firstItem="xbG-b2-reK" firstAttribute="leading" secondItem="d2s-Cy-YB6" secondAttribute="trailing" constant="15" id="tCg-VA-iVa"/>
+                                        <constraint firstAttribute="bottom" secondItem="d2s-Cy-YB6" secondAttribute="bottom" constant="10" id="wAk-9V-v2t"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainNameTVC" id="zbT-Np-7I1" customClass="MainNameTVC" customModule="AppleContacts" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="28.333333969116211"/>
@@ -103,15 +139,17 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="qdg-zg-yT8" id="id5-uZ-bOX"/>
+                        <outlet property="tableheaderview" destination="J3t-lf-59n" id="dR5-KO-4Hw"/>
                         <outlet property="tableview" destination="8di-aH-Q9Z" id="MpO-li-6Ya"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="97" y="94"/>
+            <point key="canvasLocation" x="96.92307692307692" y="93.838862559241704"/>
         </scene>
     </scenes>
     <resources>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

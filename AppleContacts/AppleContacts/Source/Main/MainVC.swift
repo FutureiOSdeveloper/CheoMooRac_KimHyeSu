@@ -17,6 +17,7 @@ class MainVC: UIViewController {
     // MARK: - IBOutlet
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var tableheaderview: UIView!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -40,6 +41,7 @@ class MainVC: UIViewController {
     func setTableview(){
         tableview.delegate = self
         tableview.dataSource = self
+        tableview.tableHeaderView = tableheaderview
     }
     
     // MARK: - IBAction

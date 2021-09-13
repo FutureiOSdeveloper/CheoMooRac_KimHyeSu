@@ -45,6 +45,11 @@ class MainVC: UIViewController {
         self.present(addVC, animated: true, completion: nil)
     }
     
+    @IBAction func groupButtonClicked(_ sender: Any) {
+        guard let groupVC = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "GroupVC") as? GroupVC else { return }
+        self.present(groupVC, animated: true, completion: nil)
+    }
+    
 }
 
 extension MainVC: UITableViewDelegate {

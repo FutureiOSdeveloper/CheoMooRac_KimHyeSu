@@ -56,7 +56,9 @@ class MainVC: UIViewController {
 }
 
 extension MainVC: UITableViewDelegate {
-    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return sectionList
+    }
 }
 
 extension MainVC: UITableViewDataSource {

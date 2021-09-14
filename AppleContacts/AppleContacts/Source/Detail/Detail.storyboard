@@ -240,7 +240,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="s7u-Qe-dAU" secondAttribute="trailing" id="15k-0A-uNY"/>
                             <constraint firstItem="jtK-Jv-6xb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="21I-vd-jHP"/>

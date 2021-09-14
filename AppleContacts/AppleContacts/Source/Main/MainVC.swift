@@ -29,6 +29,17 @@ class MainVC: UIViewController {
     // MARK: - UI
     func setUI(){
         setSearchBarUI()
+        setNavigationBarUI()
+    }
+    
+    // MARK: UI / NavigationBar
+    func setNavigationBarUI(){
+        navigationController?.navigationBar.backgroundColor = .systemGray6
+       
+        /// 선 없애기
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
     }
     
     // MARK: UI / SearchBarUI

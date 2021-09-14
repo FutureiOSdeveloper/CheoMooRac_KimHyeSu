@@ -10,10 +10,13 @@ import UIKit
 class DetailVC: UIViewController {
 
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var topviewHeight: NSLayoutConstraint!
+    @IBOutlet weak var collectionview: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableview()
+        setCollectionview()
         // Do any additional setup after loading the view.
     }
     
@@ -23,13 +26,59 @@ class DetailVC: UIViewController {
         tableview.dataSource = self
     }
     
+    // MARK: - setCollectionview
+    func setCollectionview(){
+        collectionview.delegate = self
+        collectionview.dataSource = self
+    }
     
 
 
 }
 
-extension DetailVC: UITableViewDelegate {
+extension DetailVC: UICollectionViewDelegate {
     
+}
+
+extension DetailVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let data = ["메시지", "통화", "facetime", "Mail"]
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailTopCVC.identifier, for: indexPath) as? DetailTopCVC else { return UICollectionViewCell() }
+        cell.setData(title: data[indexPath.row], index: indexPath.row)
+        return cell
+    }
+    
+    
+}
+
+extension DetailVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.main.bounds.width - 50) / 4,
+                      height: 45)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+}
+
+extension DetailVC: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+    }
 }
 
 extension DetailVC: UITableViewDataSource {

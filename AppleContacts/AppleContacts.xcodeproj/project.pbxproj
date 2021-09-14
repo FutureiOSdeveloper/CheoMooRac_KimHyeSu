@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15744FAE26F08ABB00B44B4E /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15744FAD26F08ABB00B44B4E /* Detail.storyboard */; };
+		15744FB026F08AC900B44B4E /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15744FAF26F08AC900B44B4E /* DetailVC.swift */; };
+		15744FB326F0918D00B44B4E /* DetailButtonTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15744FB226F0918D00B44B4E /* DetailButtonTVC.swift */; };
+		15744FB526F096F200B44B4E /* DetailNumberTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15744FB426F096F200B44B4E /* DetailNumberTVC.swift */; };
+		15744FB726F0986F00B44B4E /* DetailFacetimeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15744FB626F0986F00B44B4E /* DetailFacetimeTVC.swift */; };
+		15744FB926F09A6D00B44B4E /* DetailMemoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15744FB826F09A6D00B44B4E /* DetailMemoTVC.swift */; };
 		15A3B50526EE147B00A57ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A3B50426EE147B00A57ADD /* AppDelegate.swift */; };
 		15A3B50726EE147B00A57ADD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A3B50626EE147B00A57ADD /* SceneDelegate.swift */; };
 		15A3B50C26EE147B00A57ADD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15A3B50A26EE147B00A57ADD /* Main.storyboard */; };
@@ -25,6 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15744FAD26F08ABB00B44B4E /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		15744FAF26F08AC900B44B4E /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		15744FB226F0918D00B44B4E /* DetailButtonTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailButtonTVC.swift; sourceTree = "<group>"; };
+		15744FB426F096F200B44B4E /* DetailNumberTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNumberTVC.swift; sourceTree = "<group>"; };
+		15744FB626F0986F00B44B4E /* DetailFacetimeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFacetimeTVC.swift; sourceTree = "<group>"; };
+		15744FB826F09A6D00B44B4E /* DetailMemoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMemoTVC.swift; sourceTree = "<group>"; };
 		15A3B50126EE147B00A57ADD /* AppleContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15A3B50426EE147B00A57ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15A3B50626EE147B00A57ADD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +67,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15744FAC26F08AA800B44B4E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				15744FB126F0917500B44B4E /* Cell */,
+				15744FAD26F08ABB00B44B4E /* Detail.storyboard */,
+				15744FAF26F08AC900B44B4E /* DetailVC.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		15744FB126F0917500B44B4E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15744FB226F0918D00B44B4E /* DetailButtonTVC.swift */,
+				15744FB426F096F200B44B4E /* DetailNumberTVC.swift */,
+				15744FB626F0986F00B44B4E /* DetailFacetimeTVC.swift */,
+				15744FB826F09A6D00B44B4E /* DetailMemoTVC.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		15A3B4F826EE147A00A57ADD = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				15A3B51D26EE149800A57ADD /* Main */,
+				15744FAC26F08AA800B44B4E /* Detail */,
 				15A3B52326EE1E9900A57ADD /* AddContact */,
 				15A3B52D26EF197000A57ADD /* Group */,
 			);
@@ -220,6 +254,7 @@
 				15A3B51126EE147B00A57ADD /* Assets.xcassets in Resources */,
 				15A3B50C26EE147B00A57ADD /* Main.storyboard in Resources */,
 				15A3B52F26EF198500A57ADD /* Group.storyboard in Resources */,
+				15744FAE26F08ABB00B44B4E /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,15 +265,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15744FB326F0918D00B44B4E /* DetailButtonTVC.swift in Sources */,
 				15A3B50526EE147B00A57ADD /* AppDelegate.swift in Sources */,
 				15A3B52726EE1ECE00A57ADD /* AddContactVC.swift in Sources */,
+				15744FB026F08AC900B44B4E /* DetailVC.swift in Sources */,
 				15A3B52C26EF16DF00A57ADD /* AddInputTVC.swift in Sources */,
+				15744FB526F096F200B44B4E /* DetailNumberTVC.swift in Sources */,
 				15A3B53426EF1C1000A57ADD /* GroupTVC.swift in Sources */,
 				15A3B53126EF199500A57ADD /* GroupVC.swift in Sources */,
+				15744FB726F0986F00B44B4E /* DetailFacetimeTVC.swift in Sources */,
 				15A3B52A26EE55E100A57ADD /* AddPhotoTVC.swift in Sources */,
 				15A3B51F26EE16B900A57ADD /* MainVC.swift in Sources */,
 				15A3B52226EE19F000A57ADD /* MainNameTVC.swift in Sources */,
 				15A3B50726EE147B00A57ADD /* SceneDelegate.swift in Sources */,
+				15744FB926F09A6D00B44B4E /* DetailMemoTVC.swift in Sources */,
 				15A3B50F26EE147B00A57ADD /* AppleContacts.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

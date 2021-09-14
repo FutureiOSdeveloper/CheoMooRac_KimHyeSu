@@ -61,6 +61,11 @@ extension MainVC: UITableViewDelegate {
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return sectionList
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailVC = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else { return }
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension MainVC: UITableViewDataSource {

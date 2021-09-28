@@ -29,6 +29,9 @@
 		15A3B52F26EF198500A57ADD /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15A3B52E26EF198500A57ADD /* Group.storyboard */; };
 		15A3B53126EF199500A57ADD /* GroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A3B53026EF199500A57ADD /* GroupVC.swift */; };
 		15A3B53426EF1C1000A57ADD /* GroupTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A3B53326EF1C1000A57ADD /* GroupTVC.swift */; };
+		15EF164F2702D86C0067C1D9 /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EF164D2702D86C0067C1D9 /* Contact+CoreDataClass.swift */; };
+		15EF16502702D86C0067C1D9 /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EF164E2702D86C0067C1D9 /* Contact+CoreDataProperties.swift */; };
+		15EF16522702DFDB0067C1D9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EF16512702DFDB0067C1D9 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		15A3B52E26EF198500A57ADD /* Group.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
 		15A3B53026EF199500A57ADD /* GroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupVC.swift; sourceTree = "<group>"; };
 		15A3B53326EF1C1000A57ADD /* GroupTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTVC.swift; sourceTree = "<group>"; };
+		15EF164D2702D86C0067C1D9 /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataClass.swift"; sourceTree = "<group>"; };
+		15EF164E2702D86C0067C1D9 /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		15EF16512702DFDB0067C1D9 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,8 @@
 		15A3B4F826EE147A00A57ADD = {
 			isa = PBXGroup;
 			children = (
+				15EF164D2702D86C0067C1D9 /* Contact+CoreDataClass.swift */,
+				15EF164E2702D86C0067C1D9 /* Contact+CoreDataProperties.swift */,
 				15A3B50326EE147B00A57ADD /* AppleContacts */,
 				15A3B50226EE147B00A57ADD /* Products */,
 			);
@@ -132,6 +140,7 @@
 		15A3B51C26EE148F00A57ADD /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				15EF16512702DFDB0067C1D9 /* Person.swift */,
 				15A3B51D26EE149800A57ADD /* Main */,
 				15744FAC26F08AA800B44B4E /* Detail */,
 				15A3B52326EE1E9900A57ADD /* AddContact */,
@@ -279,7 +288,10 @@
 				15744FB726F0986F00B44B4E /* DetailFacetimeTVC.swift in Sources */,
 				15A3B52A26EE55E100A57ADD /* AddPhotoTVC.swift in Sources */,
 				15A3B51F26EE16B900A57ADD /* MainVC.swift in Sources */,
+				15EF164F2702D86C0067C1D9 /* Contact+CoreDataClass.swift in Sources */,
+				15EF16502702D86C0067C1D9 /* Contact+CoreDataProperties.swift in Sources */,
 				15A3B52226EE19F000A57ADD /* MainNameTVC.swift in Sources */,
+				15EF16522702DFDB0067C1D9 /* Person.swift in Sources */,
 				15A3B50726EE147B00A57ADD /* SceneDelegate.swift in Sources */,
 				15744FB926F09A6D00B44B4E /* DetailMemoTVC.swift in Sources */,
 				15A3B50F26EE147B00A57ADD /* AppleContacts.xcdatamodeld in Sources */,

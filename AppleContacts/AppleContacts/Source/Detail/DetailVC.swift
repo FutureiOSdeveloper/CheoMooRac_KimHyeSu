@@ -8,15 +8,21 @@
 import UIKit
 
 class DetailVC: UIViewController {
+    
+    var person: Person = Person(name: "기본", phone: "기본", job: "기본")
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var topviewHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionview: UICollectionView!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var jobLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableview()
         setCollectionview()
+        setData()
         // Do any additional setup after loading the view.
     }
     
@@ -30,6 +36,11 @@ class DetailVC: UIViewController {
     func setCollectionview(){
         collectionview.delegate = self
         collectionview.dataSource = self
+    }
+    
+    func setData(){
+        nameLabel.text = person.name
+        jobLabel.text = person.phone
     }
     
 
@@ -102,6 +113,7 @@ extension DetailVC: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailNumberTVC.identifier) as? DetailNumberTVC else { return UITableViewCell()}
+            
             return cell
         
         case 1:

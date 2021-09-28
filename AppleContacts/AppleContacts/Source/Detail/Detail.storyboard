@@ -257,6 +257,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collectionview" destination="5aZ-0p-TBl" id="oGA-r7-aaG"/>
+                        <outlet property="jobLabel" destination="XFv-km-vjQ" id="Zxr-Qq-4uA"/>
+                        <outlet property="nameLabel" destination="bjO-GI-A1q" id="PIW-2i-yCB"/>
                         <outlet property="tableview" destination="jtK-Jv-6xb" id="QtJ-dw-LT6"/>
                         <outlet property="topviewHeight" destination="fgh-gF-un4" id="Nou-Ys-4Bp"/>
                     </connections>

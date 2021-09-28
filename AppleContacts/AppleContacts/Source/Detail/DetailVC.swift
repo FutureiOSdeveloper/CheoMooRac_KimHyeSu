@@ -42,8 +42,6 @@ class DetailVC: UIViewController {
         nameLabel.text = person.name
         jobLabel.text = person.phone
     }
-    
-
 
 }
 
@@ -113,7 +111,7 @@ extension DetailVC: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailNumberTVC.identifier) as? DetailNumberTVC else { return UITableViewCell()}
-            
+            cell.setData(phone: person.job)
             return cell
         
         case 1:

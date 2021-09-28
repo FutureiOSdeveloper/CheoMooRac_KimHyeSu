@@ -11,6 +11,8 @@ class DetailNumberTVC: UITableViewCell {
     
     public static let identifier = "DetailNumberTVC"
 
+    @IBOutlet weak var label: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,6 +22,10 @@ class DetailNumberTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setData(phone: String){
+        label.text = phone
     }
 
 }

@@ -23,8 +23,9 @@ class AddInputTVC: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setData(placeholder: String){
+    func setData(placeholder: String, edit: String){
         inputTextField.placeholder = placeholder
+        inputTextField.text = edit
     }
 
 }

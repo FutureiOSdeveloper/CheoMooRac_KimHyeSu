@@ -9,6 +9,6 @@ import Foundation
 
 struct Person {
     var name: String
-    var phone: String
     var job: String
+    var phone: String
 }

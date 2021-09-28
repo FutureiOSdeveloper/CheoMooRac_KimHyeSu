@@ -12,12 +12,17 @@ class AddContactVC: UIViewController {
     
     var container: NSPersistentContainer!
     let inputPlaceholder = ["이름", "직장", "연락처"]
-
+    var person: Person = Person(name: "", job: "", phone: "")
+    var naviTitle: String = ""
+    
+    @IBOutlet weak var navigationTitle: UILabel!
     @IBOutlet weak var tableview: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableview()
         setCD()
+        setUI()
     }
     
     func setCD(){
@@ -42,6 +47,10 @@ class AddContactVC: UIViewController {
         tableview.delegate = self
         tableview.dataSource = self
         tableview.backgroundColor = .systemGray6
+    }
+    
+    func setUI(){
+        self.navigationTitle.text = naviTitle
     }
     
     // MARK: - Core Data
@@ -96,7 +105,15 @@ extension AddContactVC: UITableViewDataSource {
             
         case 1...3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AddInputTVC.identifier, for: indexPath) as? AddInputTVC else { return UITableViewCell() }
-            cell.setData(placeholder: inputPlaceholder[indexPath.row-1])
+            
+            if indexPath.row == 1 {
+                cell.setData(placeholder: inputPlaceholder[indexPath.row-1], edit: person.name)
+            } else if indexPath.row == 2 {
+                cell.setData(placeholder: inputPlaceholder[indexPath.row-1], edit: person.job)
+            } else if indexPath.row == 3 {
+                cell.setData(placeholder: inputPlaceholder[indexPath.row-1], edit: person.phone)
+            }
+            
             return cell
         default:
             return UITableViewCell()

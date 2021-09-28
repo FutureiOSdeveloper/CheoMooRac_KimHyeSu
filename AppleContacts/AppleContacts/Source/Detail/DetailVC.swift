@@ -9,7 +9,7 @@ import UIKit
 
 class DetailVC: UIViewController {
     
-    var person: Person = Person(name: "기본", phone: "기본", job: "기본")
+    var person: Person = Person(name: "기본", job: "기본", phone: "기본")
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var topviewHeight: NSLayoutConstraint!
@@ -40,9 +40,20 @@ class DetailVC: UIViewController {
     
     func setData(){
         nameLabel.text = person.name
-        jobLabel.text = person.phone
+        jobLabel.text = person.job
     }
-
+    
+    // MARK: - IBAction
+    @IBAction func editButtonClicked(_ sender: Any) {
+        guard let editVC = UIStoryboard(name: "AddContact", bundle: nil).instantiateViewController(withIdentifier: "AddContactVC") as? AddContactVC else {
+            return
+        }
+        editVC.modalPresentationStyle = .fullScreen
+        editVC.modalTransitionStyle = .crossDissolve
+        editVC.person = person
+        editVC.naviTitle = "연락처 수정"
+        self.present(editVC, animated: true, completion: nil)
+    }
 }
 
 extension DetailVC: UICollectionViewDelegate {
@@ -111,7 +122,7 @@ extension DetailVC: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailNumberTVC.identifier) as? DetailNumberTVC else { return UITableViewCell()}
-            cell.setData(phone: person.job)
+            cell.setData(phone: person.phone)
             return cell
         
         case 1:

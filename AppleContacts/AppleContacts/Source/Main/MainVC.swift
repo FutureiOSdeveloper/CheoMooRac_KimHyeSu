@@ -46,7 +46,7 @@ class MainVC: UIViewController {
             let contact = try self.container.viewContext.fetch(Contact.fetchRequest()) as! [Contact]
             
             for i in contact {
-                personList.append(contentsOf: [Person(name: i.name, phone: i.phone, job: i.job)])
+                personList.append(contentsOf: [Person(name: i.name, job: i.phone, phone: i.job)])
             }
             
             print(personList)
@@ -95,6 +95,7 @@ class MainVC: UIViewController {
     // MARK: - IBAction
     @IBAction func addButtonClicked(_ sender: Any) {
         guard let addVC = UIStoryboard(name: "AddContact", bundle: nil).instantiateViewController(withIdentifier: "AddContactVC") as? AddContactVC else { return }
+        addVC.naviTitle = "새로운 연락처"
         self.present(addVC, animated: true, completion: nil)
     }
     

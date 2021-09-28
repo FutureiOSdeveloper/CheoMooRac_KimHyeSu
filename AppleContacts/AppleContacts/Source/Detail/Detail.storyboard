@@ -255,7 +255,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X63-s6-YA9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="1z5-zs-nHM"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="1z5-zs-nHM">
+                            <connections>
+                                <action selector="editButtonClicked:" destination="Y6W-OH-hqX" id="7oV-Dg-KS6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

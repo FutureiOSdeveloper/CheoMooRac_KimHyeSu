@@ -17,6 +17,7 @@ class AddContactVC: UIViewController {
     
     @IBOutlet weak var navigationTitle: UILabel!
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var editViewDelete: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,11 @@ class AddContactVC: UIViewController {
     
     func setUI(){
         self.navigationTitle.text = naviTitle
+        if naviTitle == "새로운 연락처" {
+            editViewDelete.isHidden = true
+        } else {
+            editViewDelete.isHidden = false
+        }
     }
     
     // MARK: - Core Data
@@ -62,6 +68,24 @@ class AddContactVC: UIViewController {
         person.setValue(name, forKey: "name")
         person.setValue(phone, forKey: "phone")
         person.setValue(job, forKey: "job")
+    }
+    
+    func deleteData(name: String){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Contact")
+        fetchRequest.predicate = NSPredicate(format: "name = %@", name)
+        
+        do {
+            let test = try! managedContext.fetch(fetchRequest)
+            let objectToDelete = test[0] as! NSManagedObject
+            managedContext.delete(objectToDelete)
+            do {
+                try managedContext.save()
+            } catch {
+                print(error)
+            }
+        }
     }
     
     
@@ -84,6 +108,18 @@ class AddContactVC: UIViewController {
                                 ,object: nil)
             }
         }
+    }
+    
+    @IBAction func deleteButtonClicked(_ sender: Any) {
+        deleteData(name: person.name)
+        let vc1 = self.presentingViewController
+        self.dismiss(animated: true) {
+            guard let mainVC = vc1 as? UINavigationController else { return }
+            mainVC.popToRootViewController(animated: true)
+        }
+            NotificationCenter.default.post(name: NSNotification.Name("save")
+                            ,object: nil)
+        
     }
 }
 

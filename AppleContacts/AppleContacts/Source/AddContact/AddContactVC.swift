@@ -10,6 +10,7 @@ import CoreData
 
 class AddContactVC: UIViewController {
     
+    var delegate: SendDataDelegate?
     var container: NSPersistentContainer!
     let inputPlaceholder = ["이름", "직장", "연락처"]
     var person: Person = Person(name: "", job: "", phone: "")
@@ -88,6 +89,33 @@ class AddContactVC: UIViewController {
         }
     }
     
+    func updateData(name: String, newName: String, newPhone: String, newJob: String) {
+        print("updateData")
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: "Contact")
+        fetchRequest.predicate = NSPredicate(format: "name = %@", name)
+        
+        do {
+            let test = try! managedContext.fetch(fetchRequest)
+            print(test)
+            let objectUpdate = test[0] as! NSManagedObject
+            objectUpdate.setValue(newName, forKey: "name")
+            objectUpdate.setValue(newJob, forKey: "job")
+            objectUpdate.setValue(newPhone, forKey: "phone")
+            
+            do {
+                try managedContext.save()
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
     
     // MARK: - IBAction
     @IBAction func backButtonClicked(_ sender: Any) {
@@ -97,17 +125,32 @@ class AddContactVC: UIViewController {
     @IBAction func addButtonClicked(_ sender: Any) {
         /// 저장하기
         let name = tableview.cellForRow(at: IndexPath(row: 1, section: 0)) as! AddInputTVC
-        let phone = tableview.cellForRow(at: IndexPath(row: 2, section: 0)) as! AddInputTVC
-        let job = tableview.cellForRow(at: IndexPath(row: 3, section: 0)) as! AddInputTVC
+        let phone = tableview.cellForRow(at: IndexPath(row: 3, section: 0)) as! AddInputTVC
+        let job = tableview.cellForRow(at: IndexPath(row: 2, section: 0)) as! AddInputTVC
         
-        if (name.inputTextField.text! != "") || (phone.inputTextField.text! != "") || (job.inputTextField.text! != "") {
-            saveData(name: name.inputTextField.text! , phone: phone.inputTextField.text!, job: job.inputTextField.text!)
+        /// 연락처 추가
+        if naviTitle == "새로운 연락처" {
+            if (name.inputTextField.text! != "") || (phone.inputTextField.text! != "") || (job.inputTextField.text! != "") {
+                saveData(name: name.inputTextField.text! , phone: phone.inputTextField.text!, job: job.inputTextField.text!)
+                self.dismiss(animated: true) {
+                    // main -- tableview reload
+                    NotificationCenter.default.post(name: NSNotification.Name("save")
+                                    ,object: nil)
+                }
+            }
+        } else {
+            /// 연락처 수정
+            if (name.inputTextField.text! != "") || (phone.inputTextField.text! != "") || (job.inputTextField.text! != "") {
+                updateData(name: person.name, newName: name.inputTextField.text!, newPhone: phone.inputTextField.text!, newJob: job.inputTextField.text!)
+            }
+            
+            delegate?.sendData(data: Person(name: name.inputTextField.text!, job: job.inputTextField.text!, phone: phone.inputTextField.text!))
             self.dismiss(animated: true) {
-                // main -- tableview reload
                 NotificationCenter.default.post(name: NSNotification.Name("save")
-                                ,object: nil)
+                                                                      ,object: nil)
             }
         }
+        
     }
     
     @IBAction func deleteButtonClicked(_ sender: Any) {

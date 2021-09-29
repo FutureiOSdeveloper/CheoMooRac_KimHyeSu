@@ -7,7 +7,16 @@
 
 import UIKit
 
-class DetailVC: UIViewController {
+protocol SendDataDelegate {
+    func sendData(data: Person)
+}
+
+class DetailVC: UIViewController, SendDataDelegate {
+    
+    // MARK: - Protocol
+    func sendData(data: Person) {
+        person = data
+    }
     
     var person: Person = Person(name: "기본", job: "기본", phone: "기본")
 
@@ -20,10 +29,13 @@ class DetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTableview()
         setCollectionview()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("DetailVC - viewWillAppear")
         setData()
-        // Do any additional setup after loading the view.
+        setTableview()
     }
     
     // MARK: - setTableview
@@ -52,6 +64,7 @@ class DetailVC: UIViewController {
         editVC.modalTransitionStyle = .crossDissolve
         editVC.person = person
         editVC.naviTitle = "연락처 수정"
+        editVC.delegate = self
         self.present(editVC, animated: true, completion: nil)
     }
 }

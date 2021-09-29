@@ -46,7 +46,7 @@ class MainVC: UIViewController {
             let contact = try self.container.viewContext.fetch(Contact.fetchRequest()) as! [Contact]
             
             for i in contact {
-                personList.append(contentsOf: [Person(name: i.name, job: i.phone, phone: i.job)])
+                personList.append(contentsOf: [Person(name: i.name, job: i.job, phone: i.phone)])
             }
             
             print(personList)
